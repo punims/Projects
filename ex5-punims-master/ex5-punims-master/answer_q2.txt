@@ -1,0 +1,6 @@
+Q2: Suggest how to use the workflow you have implemented in this assignement to train a network that could be used for super-resolution.
+
+We would want a network trained on a new set of images x,y x being a lower resolution picture and y being a higher resolution picture. this network would learn how to increase the resolution by taking our current database.
+We would need to add a corruption function which subsamples our pixels from our given image to be able to reduce the resolution.
+Seeing as we would have to enlarge our image we should allow interpolation of some sort in the model otherwise we will never be able to fit the dimensions of the end image.
+The network could learn by how much to enlarge the picture while the rest of the network could be in charge of predicting the pixels that should be placed in the missing areas / how to deblur the enlarged picture.

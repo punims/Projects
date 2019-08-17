@@ -1,0 +1,4 @@
+Q3: What is the difference between the two results (Blurring in the image space and blurring in the fourier space)?
+
+It may be a bit darker in the edges due to fourier transform being cyclic and we padded our matrix with 0s.
+We should also expect rings however personally I couldn't notice them if they exist.

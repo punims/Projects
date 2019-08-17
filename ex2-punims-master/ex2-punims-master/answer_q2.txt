@@ -1,0 +1,6 @@
+Q2: 
+What happens if the center of the guassian (in the space domain) will not be at the 0,0 of the image?
+Why does it happen?
+
+We get very weird results, the reason for this is probably because if the 0,0 is in the center we end
+up altering low frequencies instead of the high ones and in so we dont get the wanted effect.

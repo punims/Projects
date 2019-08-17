@@ -1,0 +1,2 @@
+Q2: What happens when the number of levels for each pyramid in the picture is changed?
+The blend is more pronounced at the edges where the pictures meet, meaning it's harder to see where the cut happened.

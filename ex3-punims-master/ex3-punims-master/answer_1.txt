@@ -1,0 +1,3 @@
+Q1:What does it mean to multiply each level in a different value? What do we try to control on?
+Seeing as how each picture in the pyramid adds up after being expanded in to the original picture, the more emphasis we put on the smaller pictures the darker the picture becomes, the more emphasis we put on larger pictures the image becomes lighter and the edges more pronounced.
+It's only when our coefficients are all the same that we get a telescopic sum and get back our original picture.

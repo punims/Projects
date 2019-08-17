@@ -1,0 +1,6 @@
+Q1: in section 2 why did you get two different magnitude images?
+
+due to our calculations being discrete when transforming from fourier and back we lose information
+in the form of imaginary values which we ignore.
+also as said in the lectures, both are different ways of approximating the derivative of an image and in so they 
+are fundementally different.

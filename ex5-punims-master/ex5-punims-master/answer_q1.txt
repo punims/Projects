@@ -1,0 +1,8 @@
+Q1: Describe the effect of increasing the residual blocks on its performance for each task, both quantatively in terms of the plot you got and qualitavely in terms of the differences in the image output of each model:
+
+For the denoising plot I could notice a steady decline in the error for each run with increasing the residual blocks however the runtime increased quite a lot as well being there were overall more variables for the network to compute and to deal with.
+As for the quality there was a noticeable difference between every run since the picture became a bit cleaner with each run of the network.
+
+As for the deblurring:
+Similar results with the quantative measure as the plot curved downwards through and through. 
+Obviously the runtime increased with the amount of residual blocks however the deblurring seemed to be increasingly better with each attempt.

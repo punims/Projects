@@ -1,0 +1,3 @@
+Q3: What happens when blending happens with different kernels for blurring?
+
+The images get sharper because these kernels are used during image expansion, the larger the kernel the less accurate the pixels become and so after expansion and deletion the higher frequencies are left more pronounced that we get a sharper image.

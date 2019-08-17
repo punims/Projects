@@ -1,0 +1,13 @@
+punims,reshem
+Edan Patt 313764870, Reshef Mintz 302906557
+EX: 3
+
+FILES:
+MapReduceFramework.cpp -- Implementation of MapReduce.
+Barrier.h -- Barrier .h file..
+Barrier.cpp-- A barrier class which stops all threads from continuing until all of them finish the map stage.
+Makefile -- a makefile
+README -- this file
+
+
+

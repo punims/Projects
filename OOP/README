@@ -1,0 +1,106 @@
+punims
+nitalb
+Name: Edan Patt
+ID: 313764870
+
+
+ ===========================
+ = FILE DESCRIPTION =
+ The following packages were created:
+ main: Contains all of the classes which handle reading and parsing the code, while also containing the main running
+ class Sjavc and both factories.
+ Block: Contains all of the classes which are used to create block objects, block objects are the types that
+ create new scopes.
+ Variables: Contains all of the classes which are used to create variables and have a few methods which
+ check the validity of those variables.
+ Exceptions: contains all exceptions that Sjavac may throw.
+
+
+=====================================
+Brief explanation of the code:
+
+ i'll briefly explain the main methods within each package:
+
+ Main:
+ first/secondScan():
+ both these functions read through the script and deduce if the script is legal.
+ During the first scan, the only scope actually read in depth is the global scope. Although all lines are read
+ just to make sure all lines are legal lines, only global variables and methods are created.
+ This was a huge part of our design, because making sure the global scope is first valid made it very simple to check
+ if the inner scopes are legally made.
+ In respect to the secondScan, as previously mentioned, the secondScan focuses on the inner scopes, with both
+ inner scope variable creation and validity while also creating the new scopes of If/While.
+
+ Block:
+ Global creation and reset:
+ these methods are unique to Global as we made Global a singleton class. Knowing a global scope is always existent, but
+ also unique as it is a one of a kind, we found that making the Global object as a singleton object quite natural.
+ With every text that needs dissecting we create a global object, and with each ending of a code we use the "finally"
+ function to reset the global object for the next test.
+
+ Variables:
+ This package creates Variables of different types. Using the Variable class as an abstract object it lays a template
+ for all other Variables. The Variable object is created with booleans such as "is it final" or "is it assigned" to
+ help us keep track of whether or not the variable can do certain things.
+
+ Exceptions:
+ All exceptions in this exercise were made to be able to be caught and print out "1" which is why they do not contain
+ any information or messages.
+
+ ===========================
+
+ ===========================
+ = NOTES =
+
+ Questions:
+
+ =========
+   6.1
+ =========
+ In this exercise we used errors just to be able to exit methods once any problem was found, this exception is thrown
+ all the way up to the main where its' caught. At this point we used the catching the exceptions to be able to print
+ out the error constant.
+
+ =========
+ 6.2
+ =========
+
+ • How would you modify your code to add new types of variables (e.g., float)?
+  All that we would have to add would be a new regex to be able to find a float and a Class that extends
+  Variable to be able to create a new Float object (for example). Of course all methods which try to figure out
+  what Variable is what would also have to be modified but mostly with constants.
+
+
+ • Below are four features your program currently does not support. Please select two of them, and describe which
+ modiﬁcations/extensions you would have to make in your code in order to support them. Please brieﬂy describe which
+ classes you would add to your code, which methods you would add to existing classes, and which classes you would
+ modify. You are not required to implement these features.
+ – Classes.
+    A lot would have to be added to find classes, of course finding a class might also add finding a Constructor
+    and constant variables for that class. In this case we'd have to update new types of regex to be able to find
+    these new changes and of course add a few methods and classes to be able to save these classes and their variables.
+
+ –  Diﬀerent methods’ types (i.e int foo()) .
+    All different method types require that the return value is the same value as when the function was made.
+    In this case we'd add a constant in to the Method block which contains "returnType". when returning a function
+    we'd make sure that this type is what comes right after the return (updating the regex, and checking if the
+    returned string actually matches this type.)
+    We'd also have to change the fact that function can be used as parameters are assigning values for Variables. in
+    this case we can easily get the returnType and make sure it matches the variable's type.
+
+=========
+ 6.3
+=========
+
+ 1) First Regex - VARIABLE_NAME = "[\\s]*(_[\\w]+|[A-Za-z]+[\\w]*)";
+
+ this regex was made to look for variable names, it starts with many white spaces, the middle contains a capturing
+ group of the actual legal variable name which is either an underline followed by one of the \\w characters or a
+ letter (big or small) followed by any of the \\w characters 0 - unlimited times.
+ 2) Second Regex - METHOD_DECLARATION = "^[\\s]*(void[\\s]*)([A-Za-z][\\w]*)[\\s]*\\(*([^)]*)\\)[\\s]*\\{[\\s]*$";
+
+ Method declaration regex is used to parse and find any method declarations in the file.
+ it starts as usual with white spaces followed by a must "void", after which is followed by more whitespaces all in
+ a capturing group. Trailing this comes the legal Method name followed by whitespaces and the parentheses.
+ within the parentheses anything can appear other than other parentheses (that way we can actually find all things
+ in the parentheses without going on). All this ending with a must opening curley bracket.
